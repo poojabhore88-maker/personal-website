@@ -1,0 +1,13 @@
+*.py
+requirements.txt
+.env
+.env.*
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+venv/
+Dockerfile
+docker-compose.yml
+*.md
