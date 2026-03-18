@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pooja  Kokate - Personal Website</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-gradient::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 40% 20%, rgba(255, 219, 98, 0.2) 0%, transparent 50%);
+            animation: float 20s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            33% { transform: translateY(-20px) rotate(1deg); }
+            66% { transform: translateY(20px) rotate(-1deg); }
+        }
+        
+        .profile-container {
+            position: relative;
+            z-index: 10;
+        }
+        
+        .profile-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .profile-image:hover {
+            transform: scale(1.05);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+        }
+        
+        .tech-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            opacity: 0.1;
+            background-image: 
+                linear-gradient(90deg, transparent 24%, rgba(255, 255, 255, 0.05) 25%, rgba(255, 255, 255, 0.05) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, 0.05) 75%, rgba(255, 255, 255, 0.05) 76%, transparent 77%, transparent),
+                linear-gradient(0deg, transparent 24%, rgba(255, 255, 255, 0.05) 25%, rgba(255, 255, 255, 0.05) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, 0.05) 75%, rgba(255, 255, 255, 0.05) 76%, transparent 77%, transparent);
+            background-size: 50px 50px;
+        }
+        
+        .circuit-lines {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            opacity: 0.15;
+            background-image: 
+                linear-gradient(45deg, transparent 48%, rgba(255, 255, 255, 0.1) 49%, rgba(255, 255, 255, 0.1) 51%, transparent 52%),
+                linear-gradient(-45deg, transparent 48%, rgba(255, 255, 255, 0.1) 49%, rgba(255, 255, 255, 0.1) 51%, transparent 52%);
+            background-size: 30px 30px;
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .smooth-scroll {
+            scroll-behavior: smooth;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate-fadeInUp {
+            animation: fadeInUp 0.8s ease-out;
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .line-clamp-3 {
+            display: -webkit-box;
+            display: -moz-box;
+            display: box;
+            -webkit-line-clamp: 3;
+            line-clamp: 3;
+            -webkit-box-orient: vertical;
+            -moz-box-orient: vertical;
+            box-orient: vertical;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body class="smooth-scroll bg-gray-50">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white/90 backdrop-blur-md shadow-sm z-50">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-bold gradient-text">PB</div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="nav-link text-gray-700 hover:text-purple-600">Home</a>
+                    <a href="#about" class="nav-link text-gray-700 hover:text-purple-600">About</a>
+                    <a href="#skills" class="nav-link text-gray-700 hover:text-purple-600">Skills</a>
+                    <a href="#repositories" class="nav-link text-gray-700 hover:text-purple-600">Repositories</a>
+                    <a href="#contact" class="nav-link text-gray-700 hover:text-purple-600">Contact</a>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden text-gray-700">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white/95 backdrop-blur-md">
+            <div class="px-6 py-4 space-y-3">
+                <a href="#home" class="block text-gray-700 hover:text-purple-600">Home</a>
+                <a href="#about" class="block text-gray-700 hover:text-purple-600">About</a>
+                <a href="#skills" class="block text-gray-700 hover:text-purple-600">Skills</a>
+                <a href="#repositories" class="block text-gray-700 hover:text-purple-600">Repositories</a>
+                <a href="#contact" class="block text-gray-700 hover:text-purple-600">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center hero-gradient text-white relative">
+        <div class="tech-pattern"></div>
+        <div class="circuit-lines"></div>
+        <div class="container mx-auto px-6 text-center animate-fadeInUp relative z-10">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6">Pooja Kokate</h1>
+            <p class="text-xl md:text-2xl mb-8 text-white/90">AI Engineer & Data Scientist</p>
+            <p class="text-lg md:text-xl max-w-2xl mx-auto mb-12 text-white/80">
+                Passionate about artificial intelligence, machine learning, and creating innovative solutions that bridge the gap between technology and human potential.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#about" class="px-8 py-3 bg-white text-purple-600 rounded-full font-semibold hover:bg-gray-100 transition-colors">
+                    Learn More
+                </a>
+                <a href="#contact" class="px-8 py-3 border-2 border-white text-white rounded-full font-semibold hover:bg-white hover:text-purple-600 transition-all">
+                    Get In Touch
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-16 gradient-text">About Me</h2>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6">
+                    <p class="text-lg text-gray-700 leading-relaxed">
+                        Hello! I'm Pooja Kokate, and I believe in the power of continuous learning and growth. 
+                        My journey is driven by curiosity and a desire to make meaningful contributions to the world around me.
+                    </p>
+                    <p class="text-lg text-gray-700 leading-relaxed">
+                        I approach every challenge with enthusiasm and a commitment to excellence. Whether it's 
+                        personal projects, professional endeavors, or community involvement, I strive to bring 
+                        my best self to everything I do.
+                    </p>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-purple-50 p-4 rounded-lg">
+                            <i class="fas fa-heart text-purple-600 text-2xl mb-2"></i>
+                            <h3 class="font-semibold text-gray-800">Passionate</h3>
+                            <p class="text-sm text-gray-600">Driven by purpose</p>
+                        </div>
+                        <div class="bg-purple-50 p-4 rounded-lg">
+                            <i class="fas fa-lightbulb text-purple-600 text-2xl mb-2"></i>
+                            <h3 class="font-semibold text-gray-800">Creative</h3>
+                            <p class="text-sm text-gray-600">Innovative thinker</p>
+                        </div>
+                        <div class="bg-purple-50 p-4 rounded-lg">
+                            <i class="fas fa-users text-purple-600 text-2xl mb-2"></i>
+                            <h3 class="font-semibold text-gray-800">Collaborative</h3>
+                            <p class="text-sm text-gray-600">Team player</p>
+                        </div>
+                        <div class="bg-purple-50 p-4 rounded-lg">
+                            <i class="fas fa-rocket text-purple-600 text-2xl mb-2"></i>
+                            <h3 class="font-semibold text-gray-800">Ambitious</h3>
+                            <p class="text-sm text-gray-600">Goal-oriented</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="w-full h-96 bg-gradient-to-br from-purple-100 to-pink-100 rounded-2xl flex items-center justify-center">
+                        <i class="fas fa-user-circle text-9xl text-purple-300"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-16 gradient-text">Skills & Expertise</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="card-hover bg-white p-8 rounded-xl shadow-lg">
+                    <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-code text-purple-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4 text-gray-800">Technical Skills</h3>
+                    <p class="text-gray-600 mb-4">
+                        Continuously developing technical competencies and staying current with emerging technologies.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-purple-100 text-purple-600 rounded-full text-sm">Problem Solving</span>
+                        <span class="px-3 py-1 bg-purple-100 text-purple-600 rounded-full text-sm">Critical Thinking</span>
+                        <span class="px-3 py-1 bg-purple-100 text-purple-600 rounded-full text-sm">Adaptability</span>
+                    </div>
+                </div>
+                
+                <div class="card-hover bg-white p-8 rounded-xl shadow-lg">
+                    <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-comments text-purple-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4 text-gray-800">Communication</h3>
+                    <p class="text-gray-600 mb-4">
+                        Excellent interpersonal skills with the ability to articulate ideas clearly and effectively.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-purple-100 text-purple-600 rounded-full text-sm">Public Speaking</span>
+                        <span class="px-3 py-1 bg-purple-100 text-purple-600 rounded-full text-sm">Writing</span>
+                        <span class="px-3 py-1 bg-purple-100 text-purple-600 rounded-full text-sm">Listening</span>
+                    </div>
+                </div>
+                
+                <div class="card-hover bg-white p-8 rounded-xl shadow-lg">
+                    <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-chart-line text-purple-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4 text-gray-800">Leadership</h3>
+                    <p class="text-gray-600 mb-4">
+                        Natural leader with experience in guiding teams and driving projects to successful completion.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-purple-100 text-purple-600 rounded-full text-sm">Team Building</span>
+                        <span class="px-3 py-1 bg-purple-100 text-purple-600 rounded-full text-sm">Planning</span>
+                        <span class="px-3 py-1 bg-purple-100 text-purple-600 rounded-full text-sm">Mentoring</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GitHub Repositories Section -->
+    <section id="repositories" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-16 gradient-text">My GitHub Repositories</h2>
+            <div class="mb-8 text-center">
+                <p class="text-lg text-gray-700 max-w-2xl mx-auto">
+                    Check out my latest projects and contributions on GitHub. I'm constantly learning and building new things!
+                </p>
+            </div>
+            
+            <!-- Loading state -->
+            <div id="loading-repos" class="text-center py-12">
+                <i class="fas fa-spinner fa-spin text-4xl text-purple-600 mb-4"></i>
+                <p class="text-gray-600">Loading repositories...</p>
+            </div>
+            
+            <!-- Error state -->
+            <div id="error-repos" class="hidden text-center py-12">
+                <i class="fas fa-exclamation-triangle text-4xl text-red-500 mb-4"></i>
+                <p class="text-gray-600 mb-4">Unable to load repositories. Please check back later.</p>
+                <button onclick="loadRepositories()" class="px-6 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors">
+                    <i class="fas fa-retry mr-2"></i>Try Again
+                </button>
+            </div>
+            
+            <!-- Repositories grid -->
+            <div id="repositories-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 hidden">
+                <!-- Repositories will be dynamically inserted here -->
+            </div>
+            
+            <!-- View all button -->
+            <div class="text-center mt-12">
+                <a href="https://github.com/poojabhore88-maker" target="_blank" rel="noopener noreferrer" 
+                   class="inline-flex items-center px-8 py-3 hero-gradient text-white rounded-full font-semibold hover:opacity-90 transition-opacity">
+                    <i class="fab fa-github mr-2"></i>
+                    View All on GitHub
+                    <i class="fas fa-external-link-alt ml-2 text-sm"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-16 gradient-text">Get In Touch</h2>
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-12">
+                    <p class="text-lg text-gray-700 mb-8">
+                        I'd love to hear from you! Whether you have a question, want to collaborate, or just want to say hello, feel free to reach out.
+                    </p>
+                    <div class="flex justify-center space-x-6">
+                        <a href="mailto:poojabhore.88@gmail.com" class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center hover:bg-purple-200 transition-colors">
+                            <i class="fas fa-envelo text-purple-600"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/pooja-kokate-371632186" target="_blank" rel="noopener noreferrer" class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center hover:bg-purple-200 transition-colors">
+                            <i class="fab fa-linkedin text-purple-600"></i>
+                        </a>
+                        <a href="https://github.com/poojabhore88-maker" target="_blank" rel="noopener noreferrer" class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center hover:bg-purple-200 transition-colors">
+                            <i class="fab fa-github text-purple-600"></i>
+                        </a>
+                        <a href="https://discord.com/users/poojakokate9028" target="_blank" rel="noopener noreferrer" class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center hover:bg-purple-200 transition-colors">
+                            <i class="fab fa-discord text-purple-600"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-50 p-8 rounded-2xl">
+                    <form id="contact-form" class="space-y-6">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Name</label>
+                                <input type="text" id="name" name="name" required
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent outline-none transition-all"
+                                    placeholder="Your Name">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                                <input type="email" id="email" name="email" required
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent outline-none transition-all"
+                                    placeholder="your@email.com">
+                            </div>
+                        </div>
+                        <div>
+                            <label for="subject" class="block text-sm font-medium text-gray-700 mb-2">Subject</label>
+                            <input type="text" id="subject" name="subject" required
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent outline-none transition-all"
+                                placeholder="Subject of your message">
+                        </div>
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Message</label>
+                            <textarea id="message" name="message" rows="5" required
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent outline-none transition-all resize-none"
+                                placeholder="Your message here..."></textarea>
+                        </div>
+                        <button type="submit" 
+                            class="w-full md:w-auto px-8 py-3 hero-gradient text-white rounded-full font-semibold hover:opacity-90 transition-opacity">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 bg-gray-900 text-white">
+        <div class="container mx-auto px-6 text-center">
+            <p class="mb-4">© 2024 Pooja Bhore. All rights reserved.</p>
+            <p class="text-gray-400">Made with <i class="fas fa-heart text-red-500"></i> and lots of <i class="fas fa-coffee text-brown-400"></i></p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

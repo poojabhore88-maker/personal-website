@@ -1,0 +1,13 @@
+{
+  "name": "personal-website",
+  "version": "1.0.0",
+  "description": "Pooja Kokate - Personal Website",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 8000",
+    "build": "echo 'Static build complete'"
+  },
+  "keywords": ["personal", "website", "portfolio", "pooja-kokate"],
+  "author": "Pooja Kokate",
+  "license": "MIT"
+}
