@@ -1,3 +1,14 @@
 {
-  "version": 2
+  "version": 2,
+  "buildCommand": "echo 'Static build - no build needed'",
+  "outputDirectory": ".",
+  "installCommand": "echo 'No dependencies to install'",
+  "framework": null,
+  "functions": {},
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/$1"
+    }
+  ]
 }
